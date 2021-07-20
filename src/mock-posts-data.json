@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "The waves are high & beautiu",
+        "commentsNumber": 3,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "category": "travel",
+        "url": "https://content.r9cdn.net/rimg/dimg/78/70/001b704a-city-15939-1629b33a69c.jpg?width=1750&height=1000&xhint=1779&yhint=1365&crop=true"
+    },
+    {
+        "id": 2,
+        "title": "At the beach in Winter",
+        "commentsNumber": 4,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "category": "food",
+        "url": "https://cdnb.artstation.com/p/assets/images/images/001/475/175/large/serifcan-durmaz-highresscreenshot00153.jpg?1447083083"
+    },
+    {
+        "id": 3,
+        "title": "The waves are high & beautiu 2",
+        "commentsNumber": 5,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "category": "lifestyle",
+        "url": "https://static.diffen.com/uploadz/9/99/Sea.jpg"
+    },
+    {
+        "id": 4,
+        "title": "The waves are high & beautiu 3",
+        "commentsNumber": 6,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "category": "business",
+        "url": "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2020/05/bosque-frondoso-1954885.jpg"
+    },
+    {
+        "id": 5,
+        "title": "The waves are high & beautiu 3",
+        "commentsNumber": 6,
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "category": "work",
+        "url": "https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2020/05/bosque-frondoso-1954885.jpg"
+    }
+]
