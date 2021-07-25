@@ -1,0 +1,87 @@
+label, form i {
+    text-align: left;
+    color: rgb(90, 90, 90);
+}
+
+#modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal > div {
+    background-color: white;
+    max-width: 90%;
+    padding: 35px;
+    text-align: center;
+    border-radius: 3px;
+    background: #ffffff;
+    width: 100%;
+}
+
+#modal:empty {
+    display: none;
+  }
+  
+
+
+#modal input, #modal select {
+    border-bottom: 1px rgb(110, 110, 110) solid;
+    margin-bottom: 40px;
+}
+
+#modal input:focus {
+    border-bottom: 1px rgb(19, 56, 219) solid;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgb(22, 22, 22);
+}
+
+input:focus::placeholder {
+    visibility: hidden;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+select:focus {
+    outline: none;
+}
+
+@media only screen and (min-width: 480px) {
+    #modal > div {
+        background-color: white;
+        max-width: 400px;
+        padding: 35px;
+        text-align: center;
+        border-radius: 3px;
+        background: #ffffff;
+        width: 100%;
+    }  
+}
+
+@media only screen and (min-width: 768px) {
+    #modal > div {
+        background-color: white;
+        max-width: 400px;
+        padding: 35px;
+        text-align: center;
+        border-radius: 3px;
+        background: #ffffff;
+        width: 100%;
+    }
+}
+
+

@@ -1,21 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import Header from './components/Header/Header'
-import Main from './components/Main/Main'
-
-import postsData from './mock-posts-data.json'
-
-import ThemeContext from './ThemeContext'
-
+import Home from './components/Home/Home'
+import PostDetails from './components/PostDetails/PostDetails'
+import './App.css'
 function App() {
 
-  const postCategory = useState('business')
-  return (
-    <ThemeContext.Provider value={postCategory}>
-      <div className="App">
-        <Header />
-        <Main postsData={postsData}/>
-      </div>
-    </ThemeContext.Provider>
+  return ( 
+    <Router>
+          <Header />
+      <Switch>
+        <div className="App">
+        <Route path='/post-details/:id' exact>
+          <PostDetails />
+        </Route>
+        <Route path='/' exact>
+          <Home />
+        </Route>
+        </div> 
+      </Switch>
+    </Router>
   );
 }
 
