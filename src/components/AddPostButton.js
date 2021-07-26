@@ -10,7 +10,7 @@ function AddPostButton() {
     const [post, setPost] = useState({
        id: new Date().valueOf(),
        title: '',
-       commentsNumber: 0,
+       comments: [],
        description: '',
        category: '',
        url: '' 

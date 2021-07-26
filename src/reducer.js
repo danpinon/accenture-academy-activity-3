@@ -38,4 +38,7 @@ const categoryReducer = (category = categoryState, action) => {
     return category
 }
 
-export const reducer = (combineReducers({users: userReducer, posts: postReducer, category: categoryReducer}))
+const commentsReducer = (comments = initialState.comments, action) => {
+    return comments
+}
+export const reducer = (combineReducers({users: userReducer, posts: postReducer, comments: commentsReducer, category: categoryReducer,}))

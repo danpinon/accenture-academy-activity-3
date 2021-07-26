@@ -23,7 +23,7 @@ function PostDetails() {
                     key={filteredPost.id}
                     title={filteredPost.title}
                     description={filteredPost.description}
-                    commentsNumber={filteredPost.commentsNumber}
+                    comments={filteredPost.comments}
                     url={filteredPost.url}
                     category={filteredPost.category}
 

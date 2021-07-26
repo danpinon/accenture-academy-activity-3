@@ -5,7 +5,7 @@ import { removePost, updatePost } from '../../actions'
 import Modal from '../Modal'
 import postsData from '../../mock-posts-data.json'
 
-function Post({title, commentsNumber, description, category, url, id}) {
+function Post({title, comments, description, category, url, id}) {
   
     const dispatch = useDispatch()
     
@@ -17,7 +17,7 @@ function Post({title, commentsNumber, description, category, url, id}) {
     const [post, setPost] = useState({
         id,
         title,
-        commentsNumber: 0,
+        comments,
         description,
         category,
         url
@@ -38,7 +38,7 @@ function Post({title, commentsNumber, description, category, url, id}) {
                 }>
         <Link to={`/post-details/${id}`}>
             <h1 className='text-4xl leading-none mb-4 font-medium'>{title}</h1>
-            <h6 className='mb-4 font-light'>{commentsNumber} Comments</h6>
+            <h6 className='mb-4 font-light'>{comments.length} Comments</h6>
             <p className='mb-4 font-light'>{description}</p>
         </Link>
             <div className='flex justify-between mt-auto'>

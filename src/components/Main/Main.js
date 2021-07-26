@@ -19,7 +19,7 @@ function Main() {
                         key={filteredPost.id}
                         id={filteredPost.id}
                         title={filteredPost.title}
-                        commentsNumber={filteredPost.commentsNumber}
+                        comments={filteredPost.comments}
                         description={filteredPost.description}
                         category={filteredPost.category}
                         url={filteredPost.url}

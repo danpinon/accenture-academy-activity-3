@@ -1,4 +1,4 @@
-label, form i {
+label, #modal form i {
     text-align: left;
     color: rgb(90, 90, 90);
 }
@@ -42,24 +42,26 @@ label, form i {
     outline: none;
 }
 
-input::placeholder {
+#modal input::placeholder {
     color: rgb(22, 22, 22);
 }
 
-input:focus::placeholder {
+#modal input:focus::placeholder {
     visibility: hidden;
 }
 
 
-form {
+#modal form {
     display: flex;
     flex-direction: column;
 }
 
-select:focus {
+#modal select:focus {
     outline: none;
 }
-
+button {
+    border-radius: 3px;
+}
 button:focus {
     outline: none;
 }
