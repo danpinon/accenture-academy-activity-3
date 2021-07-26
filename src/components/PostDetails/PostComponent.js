@@ -6,6 +6,7 @@ import WriteComment from './WriteComment'
 function PostComponent({title, comments, description, id, category, url}) {
 
     const Allcomments = useSelector(state => state.comments)
+    const posts = useSelector(state => state.posts)
     return (
         <div className='mt-6 h-screen'>
             <div className='h-64 flex items-center justify-center text-white relative flex-col'
@@ -29,16 +30,27 @@ function PostComponent({title, comments, description, id, category, url}) {
                 </div>
                 <div style={{width: "24rem"}}className='mt-10 mb-4 m-auto'>
                     <h1 className='text-left font-bold'>Comments</h1>
-                    {
+                    {/* {
                     comments.map(commentId => {
                         const filteredComments = Allcomments.filter(comment => comment.id === commentId).map(comment => (
                         <Comment comment={comment.comment} username={comment.user.name}/>
                     ))
                     return filteredComments
-                    })                    
+                    })                   
+                    } */}
+                    {
+                        comments.map(comment => comment.comment)
                     }
                     
-                    <WriteComment />
+                    <WriteComment 
+                        post={{
+                            title,
+                            comments,
+                            description,
+                            id,
+                            category
+                        }}
+                    />
                 </div>
             </section>
         </div>

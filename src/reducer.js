@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import data from './mock-posts-data.json'
-import { SET_CATEGORY, ADD_POST, REMOVE_POST, UPDATE_POST } from './actions'
+import { SET_CATEGORY, ADD_POST, REMOVE_POST, UPDATE_POST, ADD_COMMENT } from './actions'
 export const initialState = data
 export const categoryState = ''
 
@@ -38,7 +38,12 @@ const categoryReducer = (category = categoryState, action) => {
     return category
 }
 
-const commentsReducer = (comments = initialState.comments, action) => {
+const commentsState = initialState.posts.reduce((acc, el) => acc.concat(el.comments), [])
+
+const commentsReducer = (comments = commentsState, action) => {
+    if(action.type === ADD_COMMENT) {
+        return [...comments, action.payload]
+    }
     return comments
 }
 export const reducer = (combineReducers({users: userReducer, posts: postReducer, comments: commentsReducer, category: categoryReducer,}))

@@ -12,4 +12,4 @@ export const addPost= (post) => ({type: ADD_POST, payload: post})
 export const removePost= (postId) => ({type: REMOVE_POST, payload: postId})
 export const updatePost= (post) => ({type: UPDATE_POST, payload: post})
 
-export const addComment= (comment) => ({type: UPDATE_POST, payload: comment})
+export const addComment= (comment) => ({type: ADD_COMMENT, payload: comment})

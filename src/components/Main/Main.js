@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import postsData from '../../mock-posts-data.json'
 
 import './Main.css'
 import Post from './Post'
