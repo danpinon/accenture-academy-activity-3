@@ -1,43 +1,70 @@
 import React, { useState } from 'react'
 import Modal from './Modal'
 import postsData from '../mock-posts-data.json'
+import { useDispatch } from 'react-redux'
+import { addPost } from '../actions'
+
 function AddPostButton() {
 
     const [edit, setEdit] = useState(false)
     const [post, setPost] = useState({
        id: new Date().valueOf(),
        title: '',
-       commentsNumber: '',
-       content: '',
+       commentsNumber: 0,
+       description: '',
        category: '',
        url: '' 
     })
+    
+    const dispatch = useDispatch()
+
+    function handleCreatePost(e) {
+        setPost({...post, [e.target.id]:e.target.value})
+    }
+
+    
+
+    console.log(post)
+
     return (
         <div className="relative h-12">
             <button onClick={() => setEdit(true)} style={{top: "-30px", left: "80%"}} className="text-white focus:outline-none hover:bg-orange-400 absolute bg-orange-500 h-20 w-20 rounded-full flex items-center justify-center shadow-lg">
-            <i class="material-icons text-4xl">edit</i>
+            <i className="material-icons text-4xl">edit</i>
             </button>
             {edit ? 
             (
             <Modal>
                 <div className="">
-                    <form className="">
+                    <form 
+                        onSubmit={(e)=>{
+                            e.preventDefault()
+                            dispatch(addPost(post)) 
+                            setEdit(false)
+                        }}
+                        >
                         <label className="">Title</label>
                         <input 
-                            className='' 
+                            id='title'
+                            value={post.title}
+                            onChange={(e) => handleCreatePost(e)}
                             />
 
                         <label>Description</label>
                         <input 
-                            className=''
+                            id='description'
+                            value={post.description}
+                            onChange={(e) => handleCreatePost(e)}
                             />
 
                         <label>Category</label>
-                        <select>
+                        <select
+                            className={'capitalize'}
+                            id='category'
+                            onChange={(e) => handleCreatePost(e)}>
                             <option />
                             {
                                 postsData.categories.map(category => (
-                                    <option value={category}>
+                                    <option className={'capitalize'}>
                                         {category}
                                     </option>
 
@@ -49,7 +76,9 @@ function AddPostButton() {
                         <div className="flex flex-col relative">
                             <i className="absolute right-0 pl-20 bg-gradient-to-l from-white to-transparent material-icons">link</i>
                             <input
-                                className=''
+                                id='url'
+                                value={post.url}
+                                onChange={(e) => handleCreatePost(e)}
                                 />
                         </div>
 

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import data from './mock-posts-data.json'
-import { SET_CATEGORY } from './actions'
+import { SET_CATEGORY, ADD_POST, REMOVE_POST, UPDATE_POST } from './actions'
 export const initialState = data
 export const categoryState = ''
 
@@ -9,6 +9,25 @@ const userReducer = (users = initialState.users, action) => {
 }
 
 const postReducer = (posts = initialState.posts, action) => {
+    if(action.type === ADD_POST) {
+        return [...posts, action.payload]
+    }
+
+    if(action.type === REMOVE_POST) {
+        const newPosts = posts.filter(post => post.id !== action.payload)
+        return newPosts
+    }
+
+    if(action.type === UPDATE_POST) {
+        const newPost = posts.map(post => {
+            if(post.id === action.payload.id) {
+                return action.payload
+            }
+            return post
+        })
+        return newPost
+    }
+
     return posts
 }
 
