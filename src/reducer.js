@@ -38,9 +38,7 @@ const categoryReducer = (category = categoryState, action) => {
     return category
 }
 
-const commentsState = initialState.posts.reduce((acc, el) => acc.concat(el.comments), [])
-
-const commentsReducer = (comments = commentsState, action) => {
+const commentsReducer = (comments = initialState.comments, action) => {
     if(action.type === ADD_COMMENT) {
         return [...comments, action.payload]
     }

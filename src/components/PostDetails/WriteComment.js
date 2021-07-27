@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import supervillains from 'supervillains'
-import { addComment, updatePost } from '../../actions'
+import { addComment } from '../../actions'
+import { BrowserRouter as Router, useParams } from "react-router-dom";
+function WriteComment() {
+    let { id } = useParams()
 
-function WriteComment({ post}) {
     const emptyComment = {
-        id: new Date().valueOf(),
+        postId: parseInt(id),
         comment: '',
         user: {
             id: new Date().valueOf(),
@@ -14,22 +16,19 @@ function WriteComment({ post}) {
     }
     const [comment, setComment] = useState(emptyComment)
 
-    const [postState, setPostState] = useState(post)
-
     const dispatch = useDispatch()
     
     function handleAddComment(e) {
         setComment({...comment, comment: e.target.value})
     }
 
-    console.log(postState)
+    console.log(comment)
     return (
         <div className='pt-6'>
             <form className="flex flex-col"
                 onSubmit={(e) => {
                     e.preventDefault()
                     dispatch(addComment(comment))
-                    dispatch(updatePost('hello'))
                     setComment(emptyComment)
                 }}
             >
@@ -38,7 +37,6 @@ function WriteComment({ post}) {
                     className="mt-2 focus:outline-none bg-transparent border-b border-gray-500"
                     value={comment.comment}
                     onChange={(e) => {
-                        setPostState({...post, [post.comments]: [...post.comments, comment.id]})
                         handleAddComment(e)
                         }}
                 />

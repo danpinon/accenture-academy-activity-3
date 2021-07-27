@@ -21,6 +21,7 @@ function PostDetails() {
             posts.filter( post => post.id === parseInt(id) ).map(filteredPost => (
                 <PostComponent 
                     key={filteredPost.id}
+                    id={filteredPost.id}
                     title={filteredPost.title}
                     description={filteredPost.description}
                     comments={filteredPost.comments}

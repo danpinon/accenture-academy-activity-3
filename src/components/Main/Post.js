@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removePost, updatePost } from '../../actions'
 import Modal from '../Modal'
 import postsData from '../../mock-posts-data.json'
 
 function Post({title, comments, description, category, url, id}) {
-  
+    
     const dispatch = useDispatch()
     
     function handleRemovePost(postId) {
@@ -28,22 +28,33 @@ function Post({title, comments, description, category, url, id}) {
      function handlePost(e){
         setPost({...post, [e.target.id]: e.target.value})
      }
+     const allComments = useSelector(state => state.comments)
+
+     const commentsNumber = allComments.filter(comment => comment.postId === id ).map(comment => (
+        comment
+    )).length
+
     return (
-        <article className='h-full bg-gray-600 bg-image-article px-8 pt-8 pb-4 flex flex-col' 
+        
+        
+        <article className='h-full bg-gray-600 bg-image-article px-8 pt-8 pb-4 flex flex-col '
+
         style={
             {
                 background: `linear-gradient( rgba(100, 100, 100, .2), rgba(50, 50, 50, .8) ), url(${url}) center`,
                 backgroundSize: "cover"
             }
                 }>
+        <div className=''>
         <Link to={`/post-details/${id}`}>
             <h1 className='text-4xl leading-none mb-4 font-medium'>{title}</h1>
-            <h6 className='mb-4 font-light'>{comments.length} Comments</h6>
+            <h6 className='mb-4 font-light'>{commentsNumber} Comments</h6>
             <p className='mb-4 font-light'>{description}</p>
         </Link>
-            <div className='flex justify-between mt-auto'>
+        
+            <div className='flex justify-between mt-auto' >
                 <h6 className='font-normal uppercase tracking-widest'>{category}</h6>    
-                <div className='z-10'>
+                <div className=''>
                     <button className='hover:text-gray-500' onClick={() => setEdit(true)}>
                         <i className="mr-3 material-icons text-2xl">edit</i>
                     </button>
@@ -112,6 +123,7 @@ function Post({title, comments, description, category, url, id}) {
                 </div>
             </Modal>) : null
             }    
+        </div>
         </article>
     )
 }
